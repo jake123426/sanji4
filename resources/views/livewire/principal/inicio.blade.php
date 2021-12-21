@@ -100,7 +100,7 @@
                 <div class="box">
 
                     <div class="image">
-                        <img src="{{ Storage::url($anuncio->imagen()->first()->url) }}" alt="" />
+                        <img src="{{ asset(Storage::url($anuncio->imagen()->first()->url)) }}" alt="" />
 
                     </div>
                     <div class="content">
