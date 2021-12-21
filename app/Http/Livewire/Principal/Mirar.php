@@ -40,9 +40,11 @@ class Mirar extends Component
     {
         /* $usernombre = auth()->user()->name;
         $userfoto = auth()->user()->profile_photo_url; */
-        $crearopiniones = new Opinion();
+
         /* $crearopiniones->nombre = ucwords($usernombre);
         $crearopiniones->foto = $userfoto; */
+
+        $crearopiniones = new Opinion();
         $crearopiniones->user_id = auth()->user()->id;
         $crearopiniones->descripcion = ucwords($this->descripcion);
         $crearopiniones->puntuacion = $this->puntuacion;
@@ -51,7 +53,7 @@ class Mirar extends Component
 
         $anun = Anuncio::find($id);
         $anun->puntuacion = $anun->puntuacion + $this->puntuacion;
-        $anun->puntuacion = $anun->puntuacion / $anun->opinion()->count();
+        $anun->puntuacion = intval( $anun->puntuacion / $anun->opinion()->count());
         $anun->save();
 
 
