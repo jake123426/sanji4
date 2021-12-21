@@ -51,7 +51,7 @@
                     <!-- Slides -->
                     @foreach ($imagenes as $imagen)
                         <div class="swiper-slide">
-                            <img src="{{ Storage::url($imagen->url) }}" alt="No Image" />
+                            <img src="{{ asset(Storage::url($imagen->url)) }}" alt="No Image" />
                         </div>
                     @endforeach
 
@@ -107,7 +107,7 @@
                 <div class="card-header comentario-container">
                     <div class="autor aling">
                         <img class="imagen" @isset($opinion->foto)
-                            src="{{ Storage::url($opinion->foto) }}"
+                            src="{{ asset(Storage::url($opinion->foto)) }}"
                         @else
                             src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"
                         @endisset alt="" />
@@ -148,7 +148,7 @@
             <div class="comentario-container cc">
                 <div style="flex: 10%" class="autor aling">
                     <img class="imagen" @isset(auth()->user()->url)
-                        src="{{ Storage::url(auth()->user()->url) }}"
+                        src="{{ asset(Storage::url(auth()->user()->url)) }}"
                     @else
                         src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"
                     @endisset alt="" />

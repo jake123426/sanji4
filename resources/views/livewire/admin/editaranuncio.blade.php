@@ -85,7 +85,7 @@
 
 
                             <div class="card-body">
-                                <img class="imagen" src="{{Storage::url($imagen->url) }}" alt="No Image">
+                                <img class="imagen" src="{{ asset(Storage::url($imagen->url)) }}" alt="No Image">
                             </div>
                             <div style="text-align: center" class="card-footer">
                                 <a class="delete" href="{{route('eliminar.imagen',[ $imagen->id]) }}">Eliminar</a>

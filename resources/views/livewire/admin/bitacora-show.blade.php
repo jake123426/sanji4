@@ -33,7 +33,7 @@
                             <tr>
                                 <td>
                                     @isset($usuario->url)
-                                        <img class="imagen" src="{{ Storage::url($usuario->url) }}" alt="">
+                                        <img class="imagen" src="{{ asset(Storage::url($usuario->url)) }}" alt="">
                                     @else
                                         <img class="imagen"
                                             src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png" alt="">

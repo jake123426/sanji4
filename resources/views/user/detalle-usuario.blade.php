@@ -23,7 +23,7 @@
                 <div class="col-xs-12 col-sm-12 col-md-12 img">
                     <label for="perfil" class="form-label la">Foto de Perfil:</label>
                     @isset($usuario->url)
-                        <img class="imagen" src="{{ Storage::url($usuario->url) }}" alt="">
+                        <img class="imagen" src="{{ asset(Storage::url($usuario->url)) }}" alt="">
                     @else
                         <img class="imagen" src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png"
                             alt="">

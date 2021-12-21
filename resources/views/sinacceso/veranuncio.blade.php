@@ -139,7 +139,7 @@
                     <!-- Slides -->
                     @foreach ($imagenes as $imagen)
                         <div class="swiper-slide">
-                            <img src="{{ Storage::url($imagen->url) }}" alt="No Image" />
+                            <img src="{{ asset(Storage::url($imagen->url)) }}" alt="No Image" />
                         </div>
                     @endforeach
 

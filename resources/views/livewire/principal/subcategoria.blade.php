@@ -83,7 +83,7 @@
                 <div class="box">
 
                   <div class="image">
-                    <img src="{{Storage::url($anuncio->imagen()->first()->url) }}" alt="" />
+                    <img src="{{ asset(Storage::url($anuncio->imagen()->first()->url)) }}" alt="" />
                     <a href="#" class="fas fa-heart"></a>
                   </div>
                   <div class="content">

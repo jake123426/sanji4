@@ -12,7 +12,7 @@
 
                             <a  href="{{ route('anuncios.show', [ $anuncio->id]) }}">
                                 <i class="fas fa-heart fa-2x corazon"></i>
-                                <img class="imagen" src="{{Storage::url($anuncio->imagen()->first()->url) }}" alt=""  />
+                                <img class="imagen" src="{{ asset(Storage::url($anuncio->imagen()->first()->url)) }}" alt=""  />
                             </a>
                         </div>
                         <div  class="card-footer descripcion">

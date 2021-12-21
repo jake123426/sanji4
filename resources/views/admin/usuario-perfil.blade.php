@@ -31,7 +31,7 @@
                         <img class="imagen" id="picture"
                         src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
                         @else
-                        <img class="imagen" id="picture" src="{{Storage::url($usuario->url) }}" alt="" />
+                        <img class="imagen" id="picture" src="{{ asset(Storage::url($usuario->url)) }}" alt="" />
                         @endif
 
                     </div>

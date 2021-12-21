@@ -112,7 +112,7 @@
 
                                                 <div class="carousel-item  @if ($loop->first) active  @endif">
                                                     <img class="d-block imagen"
-                                                        src="{{ Storage::url($imagen->url) }}" alt="">
+                                                        src="{{ asset(Storage::url($imagen->url)) }}" alt="">
                                                 </div>
 
                                             @endforeach

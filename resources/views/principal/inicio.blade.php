@@ -101,7 +101,7 @@
                     <div>
                         <button class="btnUser" {{-- x-on:click="open=true" --}} type="button">
                             @isset(auth()->user()->url)
-                                <img class="imgUser" src="{{ Storage::url(auth()->user()->url) }}" alt="">
+                                <img class="imgUser" src="{{ asset(Storage::url(auth()->user()->url)) }}" alt="">
                             @else
                                 <img class="imgUser"
                                     src="https://www.weact.org/wp-content/uploads/2016/10/Blank-profile.png" alt="">
