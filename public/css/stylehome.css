@@ -1,0 +1,650 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
+
+:root {
+    --green: #adc5ea;
+    --black: #192a56;
+    --light-color: #666;
+    --mostaza: #a36d00;  /* attention: */
+    --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
+}
+
+* {
+    font-family: "Nunito", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none !important;
+    outline: none;
+    border: none;
+    text-transform: capitalize;
+    transition: all 0.2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 5.5rem;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 2rem 9%;
+}
+
+section:nth-child(even) {
+    background: #eee;
+}
+
+.sub-heading {
+    text-align: center;
+    color: var(--green);
+    font-size: 2rem;
+    padding-top: 1rem;
+}
+
+.heading {
+    text-align: center;
+    color: var(--black);
+    font-size: 3rem;
+    padding-bottom: 2rem;
+    text-transform: uppercase;
+}
+
+.botonsimple {
+    margin-top: 1rem;
+    display: inline-block;
+    font-size: 1.7rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.8rem 3rem;
+}
+
+.botonsimple:hover {
+    background: var(--green);
+    letter-spacing: 0.1rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    padding: 1rem 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    box-shadow: var(--box-shadow);
+}
+
+header .logo {
+    color: var(--black);
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+header .logo i {
+    color: var(--green);
+}
+/*  ACTUALIZADO: Cambios realizados.. */
+header .icons #menu-bars {
+    display: none;
+}
+
+header .nav1 a {
+    font-size: 1.7rem;
+    margin-right: 2rem;
+    background: var(--mostaza);
+    /* border: 1px solid black; */
+    font-weight: bold;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    color: white;
+}
+
+header .nav1 a:hover {
+    color: #fff;
+    background: var(--black);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    /* margin-top: 1rem; */
+    background-color: #f9f9f9;
+    min-width: 30rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    padding: 12px 16px;
+    z-index: 1;
+
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.first-p{
+    font-size: 1.7rem;
+    border-bottom: 1px solid rgb(185, 185, 185);
+    margin-bottom: 1rem;
+}
+
+.second-p{
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+/*  ACTUALIZADO: Cambios realizados.. */
+header .icons {
+    display: flex;
+}
+
+header .icons i,
+header .icons a {
+    cursor: pointer;
+    margin-left: 0.5rem;
+    height: 4.5rem;
+    line-height: 4.5rem;
+    width: 4.5rem;
+    text-align: center;
+    font-size: 1.7rem;
+    color: var(--black);
+    border-radius: 50%;
+    background: #eee;
+}
+
+header .icons form {
+    display: inline;
+}
+header .icons form a {
+    background-color: white;
+}
+header .icons form a:hover {
+    background-color: white;
+}
+
+header .icons i:hover,
+header .icons a:hover {
+    color: #fff;
+    background: var(--green);
+    transform: rotate(360deg);
+}
+/*  ACTUALIZADO: Cambios realizados.. */
+/*------------- User Navbar ----------------- */
+.contenedorUser {
+    margin-left: 0.5rem;
+    position: relative;
+    top: -0.2rem;
+}
+.imgUser {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.btnUser {
+    background: white;
+}
+.btnUser:hover {
+    cursor: pointer;
+}
+.showUser {
+    display: none;
+    position: absolute;
+    background: white;
+    z-index: 10;
+    border-radius: 0.5rem;
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: 0.5rem 0.5rem 2rem 1rem rgba(0, 0, 0, 0.1);
+    max-width: 20rem;
+    min-width: 20rem;
+    top: 5.5rem;
+    right: 0.5rem;
+    font-size: 1.2rem;
+    overflow: hidden;
+}
+.perfilUser {
+    display: block;
+    margin-left: 0rem !important;
+    transition: none;
+    max-width: 100%;
+    min-width: 100%;
+    border-radius: 0rem !important;
+    color: var(--black);
+    font-weight: 700;
+}
+
+.perfilUser:not(.perfilUser:nth-last-child(1)) {
+    border-bottom: 1px solid rgb(192, 192, 192);
+}
+.perfilUser:hover {
+    color: var(--black) !important;
+    font-size: 2rem;
+}
+/*------------- User Navbar End ----------------- */
+/*  ACTUALIZADO: Cambios realizados.. */
+.home .home-slider .slide {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-top: 9rem;
+}
+
+.home .home-slider .slide .content {
+    flex: 1 1 45rem;
+}
+
+.home .home-slider .slide .image {
+    flex: 1 1 45rem;
+}
+
+.home .home-slider .slide .image img {
+    width: 70%;
+}
+
+.home .home-slider .slide .content span {
+    color: var(--green);
+    font-size: 2.5rem;
+}
+
+.home .home-slider .slide .content h3 {
+    color: var(--black);
+    font-size: 7rem;
+}
+
+.home .home-slider .slide .content p {
+    color: var(--light-color);
+    font-size: 2.2rem;
+    padding: 0.5rem 0;
+    line-height: 1.5;
+}
+
+/* .swiper-pagination-bullet-active{
+    background:var(--green);
+} */
+
+.dishes .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+    gap: 5rem;
+}
+
+.dishes .box-container .box {
+    padding: 2.5rem;
+    background: #fff;
+    border-radius: 0.5rem;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+.dato-container{
+    height: 42%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between ;
+    /* align-items: stretch; */
+}
+.dishes .box-container .box img:hover {
+    transform: scale(1.2, 1.2);
+}
+
+.dishes .box-container .box img {
+    height: 17rem;
+    margin: 1rem 0;
+}
+
+.dishes .box-container .box h3 {
+    margin-top: 30px;
+    color: var(--black);
+    font-size: 2.7rem;
+}
+
+.dishes .box-container .box .stars {
+    padding: 1rem 0;
+}
+
+.dishes .box-container .box .stars i {
+    font-size: 1.7rem;
+    color: var(--green);
+}
+
+.dishes .box-container .box span {
+    color: var(--green);
+    font-weight: bolder;
+    margin-right: 1rem;
+    font-size: 2.5rem;
+}
+
+.pricing .card {
+    border: none;
+    border-radius: 1rem;
+    transition: all 0.2s;
+    box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.1);
+}
+.pricing .card ul {
+    font-size: 1.5rem;
+}
+
+.pricing hr {
+    margin: 1.5rem 0;
+}
+
+.pricing .card-title {
+    margin: 0.5rem 0;
+    font-size: 3rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+}
+
+.pricing .card-price {
+    font-size: 4rem;
+    margin: 0;
+}
+
+.pricing .card-price .period {
+    font-size: 1.5rem;
+}
+
+.pricing ul li {
+    margin-bottom: 1rem;
+}
+
+.pricing .text-muted {
+    opacity: 0.7;
+}
+
+.pricing .btn {
+    font-size: 80%;
+    border-radius: 5rem;
+    letter-spacing: 0.1rem;
+    font-weight: bold;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: all 0.2s;
+}
+
+/* Hover Effects on Card */
+
+@media (min-width: 992px) {
+    .pricing .card:hover {
+        margin-top: -0.25rem;
+        margin-bottom: 0.25rem;
+        box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.3);
+    }
+
+    .pricing .card:hover .btn {
+        opacity: 1;
+    }
+}
+
+.menu .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    gap: 1.5rem;
+}
+
+.menu .box-container .box {
+    background: #fff;
+    border: 0.1rem solid rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    box-shadow: var(--box-shadow);
+    height: 45rem;
+    max-width: 35rem;
+}
+
+.menu .box-container .box .image {
+    height: 25rem;
+    width: 100%;
+    padding: 1.5rem;
+    overflow: hidden;
+    position: relative;
+}
+
+.menu .box-container .box .image img {
+    height: 100%;
+    width: 100%;
+    border-radius: 0.5rem;
+    object-fit: cover;
+}
+
+.menu .box-container .box .image .fa-heart {
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    height: 5rem;
+    width: 5rem;
+    line-height: 5rem;
+    text-align: center;
+    font-size: 2rem;
+    background: #fff;
+    border-radius: 50%;
+    color: var(--black);
+}
+
+.menu .box-container .box .image .fa-heart:hover {
+    background-color: var(--green);
+    color: #fff;
+}
+
+.menu .box-container .box .content {
+    padding: 2rem;
+    padding-top: 0;
+}
+
+.menu .box-container .box .content .stars {
+    padding-bottom: 1rem;
+}
+
+.menu .box-container .box .content .stars i {
+    font-size: 1.7rem;
+    color: var(--green);
+}
+
+.menu .box-container .box .content h3 {
+    color: var(--black);
+    font-size: 2.5rem;
+}
+
+.menu .box-container .box .content p {
+    color: var(--light-color);
+    font-size: 1.6rem;
+    padding: 0.5rem 0;
+    line-height: 1.5;
+    height: 55px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.price-container {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.price {
+    color: var(--green);
+    margin-left: 1.5rem;
+    font-size: 2.5rem;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.menu .box-container .box .content a {
+    padding: 0.8rem 1rem;
+}
+.menu .box-container .box .content a:hover {
+    letter-spacing: 0rem;
+    font-size: 1.8rem;
+}
+
+.footer .box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap: 1.5rem;
+}
+
+.footer .box-container .box h3 {
+    padding: 0.5rem 0;
+    font-size: 2.5rem;
+    color: var(--black);
+}
+
+.footer .box-container .box a {
+    display: block;
+    padding: 0.5rem 0;
+    font-size: 1.5rem;
+    color: var(--light-color);
+}
+
+.footer .box-container .box a:hover {
+    color: var(--green);
+    text-decoration: underline;
+}
+
+.footer .credit {
+    text-align: center;
+    border-top: 0.1rem solid rgba(0, 0, 0, 0.1);
+    font-size: 2rem;
+    color: var(--black);
+    padding: 0.5rem;
+    padding-top: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.footer .credit span {
+    color: var(--green);
+}
+
+.link-gratis a{
+    pointer-events: none;
+}
+
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10000;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.loader-container img {
+    width: 35rem;
+}
+
+.loader-container.fade-out {
+    top: -110%;
+    opacity: 0;
+}
+
+/* media queries  */
+/* ACTUALIZADO: Cambios realizados..  */
+@media (max-width: 1200px) {
+    header .icons #menu-bars {
+        display: inline-block;
+    }
+
+    header .nav1 {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: #fff;
+        border-top: 0.1rem solid rgba(0, 0, 0, 0.2);
+        border-bottom: 0.1rem solid rgba(0, 0, 0, 0.2);
+        padding: 1rem;
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+
+    header .nav1.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    header .nav1 a {
+        display: block;
+        color: white;
+        padding: 1.5rem;
+        margin: 1rem;
+        font-size: 2rem;
+        background: var(--mostaza);
+    }
+
+    header .nav1 a:hover {
+        background: var(--black);
+    }
+}
+/* ACTUALIZADO: Cambios realizados..  */
+
+
+@media (max-width: 991px) {
+    html {
+        font-size: 55%;
+    }
+
+    header {
+        padding: 1rem 2rem;
+    }
+
+    section {
+        padding: 2rem;
+    }
+    /* ACTUALIZADO: Cambios realizados..  */
+    .showUser {
+        top: 6rem;
+    }
+    /* ACTUALIZADO: Cambios realizados..  */
+}
+
+@media (max-width: 768px) {
+    .home .home-slider .slide .content h3 {
+        font-size: 5rem;
+    }
+    /* ACTUALIZADO: Cambios realizados..  */
+    .showUser {
+        top: 6rem;
+    }
+    /* ACTUALIZADO: Cambios realizados..  */
+    .menu .box-container .box {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .dishes .box-container .box img {
+        height: auto;
+        width: 100%;
+    }
+
+    .order form .inputBox .input {
+        width: 100%;
+    }
+    /* ACTUALIZADO: Cambios realizados..  */
+    .showUser {
+        top: 6rem;
+    }
+    /* ACTUALIZADO: Cambios realizados..  */
+    .menu .box-container .box {
+        max-width: 100%;
+    }
+}
