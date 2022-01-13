@@ -72,7 +72,7 @@
                     @csrf
 
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                              this.closest('form').submit();">
+                                                                  this.closest('form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
 
                     </a>
@@ -377,8 +377,12 @@
 
                         <div class="box">
                             <div class="image">
-                                <img src="{{ asset(Storage::url($anuncio->imagen()->first()->url)) }}" alt="" />
-
+                                @isset($anuncio->imagen()->first()->url)
+                                    <img src="{{ asset(Storage::url($anuncio->imagen()->first()->url)) }}" alt="" />
+                                @else
+                                    <img src="https://www.digitalresponse.es/wp-content/uploads/2020/05/campa%C3%B1as_reposicion_de_producto-1024x512.jpg"
+                                        alt="" />
+                                @endisset
                             </div>
                             <div class="content">
                                 <div class="stars">
