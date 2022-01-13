@@ -16,9 +16,9 @@
 
 @section('css')
 
-    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"> -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"> --}}
+
 
 
     <style>
@@ -27,7 +27,6 @@
 
         * {
             text-decoration: none !important;
-
         }
 
 
@@ -46,8 +45,8 @@
         /* --------------------------------------------------------------------------------------------- */
 
         .descripcion {
-            font-family: 'Cookie', cursive;
-            font-size: 140%;
+           /*  font-family: 'Cookie', cursive; */
+            /* font-size: 140%; */
             display: -webkit-box;
             -webkit-line-clamp: 4;
             -webkit-box-orient: vertical;
@@ -55,20 +54,26 @@
         }
 
         .card-title {
-            font-size: 1.7rem;
+            font-size: 2rem;
             font-weight: 700;
             color: var(--black);
         }
 
         .precio {
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.2rem;
+            font-weight: 400;
             color: var(--black);
+            border: 1px solid rgb(209, 209, 209);
+            border-radius: 1rem;
+            text-align: center;
+            font-weight: 700;
+            box-shadow: 0px 0px 5px 2px rgb(209, 209, 209)
 
         }
 
         .card-block {
-            font-size: 1em;
+            font-size: 1rem;
+            height: 100%;
             position: relative;
             margin: 0;
             padding: 1em;
@@ -81,6 +86,14 @@
             justify-content: space-between;
             /* align-items: center; */
         }
+        .opciones{
+            display: grid;
+            grid-template-columns: auto auto auto;
+            justify-content: space-evenly;
+            align-content: center;
+            grid-gap: 10px;
+        }
+
 
         .imagen-container {
             padding: 2rem;
@@ -104,15 +117,25 @@
         }
         .boton-eli{
             background: red !important;
-            transition: all 0.5s;
+            grid-row: 1 / 2;
+
+            /* line-height: 6rem; */
         }
         .boton-eli.btn:hover{
             background: rgb(255, 170, 170) !important;
-            letter-spacing: 0.2rem;
-            font-weight: bold;
         }
 
+        .boton {
+            background: #485477;
+            border: none;
+            font-weight: 500;
+        }
 
+        .boton:hover {
+            background: var(--green);
+            color: black;
+
+        }
 
 
         .carousel-indicators li {
@@ -138,22 +161,6 @@
         .carousel-control-next-icon {
             background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='0 0 8 8'%3E%3Cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3E%3C/svg%3E") !important;
         }
-
-
-
-        .btn {
-            background: #485477;
-            border: none;
-
-        }
-
-        .btn:hover {
-            background: var(--green);
-            color: black;
-            font-weight: 500;
-        }
-
-
 
         .container {
             max-width: 95%;
@@ -202,6 +209,7 @@
             .container {
                 max-width: 100%;
             }
+
         }
 
         @media (max-width: 760px) {
@@ -210,10 +218,27 @@
                 max-width: 100%;
             }
 
+
+            .card{
+                max-width: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .content , .container-fluid{
+                padding: 0 !important;
+            }
             .container {
                 max-width: 100%;
+                padding: 0;
+
             }
 
+            .radios{
+                padding: 0 !important;
+            }
+            .card-body{
+                padding: 0 !important;
+            }
         }
 
         @media (max-width: 450px) {
@@ -224,7 +249,10 @@
 
             .container {
                 max-width: 100%;
+
             }
+
+
         }
 
     </style>
@@ -232,10 +260,10 @@
 @stop
 
 @section('js')
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    {{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
     <script>
-        cosole.log('Hola');
+        console.log('Hola');
     </script>
 @stop

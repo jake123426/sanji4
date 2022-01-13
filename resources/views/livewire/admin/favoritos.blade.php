@@ -5,11 +5,7 @@
                 @foreach ($anuncios as $anuncio )
                 <div class="col-xs-4 col-md-6 col-sm-12 col-lg-4  ">
                     <div  class="card">
-
                         <div class="card-body">
-
-
-
                             <a  href="{{ route('anuncios.show', [ $anuncio->id]) }}">
                                 <i class="fas fa-heart fa-2x corazon"></i>
                                 <img class="imagen" src="{{ asset(Storage::url($anuncio->imagen()->first()->url)) }}" alt=""  />

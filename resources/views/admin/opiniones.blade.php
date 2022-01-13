@@ -123,6 +123,6 @@
 @section('js')
 
     <script>
-        cosole.log('Hola');
+        console.log('Hola');
     </script>
 @stop

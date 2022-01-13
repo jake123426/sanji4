@@ -7,7 +7,7 @@ use App\Models\Opinion;
 use Livewire\Component;
 use App\Models\Anuncio;
 use App\Models\Bitacora;
-
+use App\Models\reporte;
 class Mirar extends Component
 {
     public $anuncio;
@@ -18,6 +18,7 @@ class Mirar extends Component
     public $descripcion;
     public $cant_opiniones;
     public $star;
+    public $reporte;
 
     protected $listeners = ['renderizacion' => '$refresh'];
     public function render()
@@ -36,6 +37,19 @@ class Mirar extends Component
         return view('livewire.principal.mirar', compact('imagenes', 'opiniones'));
     }
 
+    public function reportar(Anuncio $datos){
+         $reporte=new reporte();
+         $reporte->reporte=$this->reporte;
+         $reporte->nombre=auth()->user()->name;
+         $reporte->url_nombre=auth()->user()->url;
+         $reporte->nombre_reportado=$datos->user->name;
+         $reporte->url_reportado=$datos->user->url;
+         $reporte->anuncio=$datos->nombre;
+         $reporte->fecha=date('m-d-y');
+         $reporte->save();
+         $this->emit('renderizacion');
+    }
+
     public function guardaropinion($id)
     {
         /* $usernombre = auth()->user()->name;
@@ -52,8 +66,8 @@ class Mirar extends Component
         $crearopiniones->save();
 
         $anun = Anuncio::find($id);
-        $anun->puntuacion = $anun->puntuacion + $this->puntuacion;
-        $anun->puntuacion = intval( $anun->puntuacion / $anun->opinion()->count());
+        $anun->puntuacion= $anun->puntuacion + $this->puntuacion;
+
         $anun->save();
 
 

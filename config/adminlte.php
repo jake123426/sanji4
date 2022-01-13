@@ -237,6 +237,29 @@ return [
          ],
 
          [
+            'text' => 'Estadisticas',
+            'active' => ['estadisticas'],
+            'route'  => 'estadisticas',
+            'icon' => 'fas fa-chart-bar',
+            /* 'can' => 'userss.index', */
+         ],
+         [
+            'text' => 'Reportes de Usuarios',
+            'active' => ['alertas'],
+            'route'  => 'alertas',
+            'icon' => 'fas fa-flag',
+            /* 'can' => 'userss.index', */
+         ],
+
+         [
+            'text' => 'Notificar',
+            'active' => ['notificar'],
+            'route'  => 'notificar',
+            'icon' => 'fas fa-exclamation-triangle',
+            /* 'can' => 'userss.index', */
+         ],
+
+         [
             'text' => 'Suscripciones',
             'route'  => 'suscripcion.create',
             'active' => ['suscripcion.create'],

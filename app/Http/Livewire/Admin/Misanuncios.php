@@ -13,7 +13,7 @@ class Misanuncios extends Component
     public $search;
     protected $paginationTheme = "bootstrap";
 
-    public $status=6;
+    public $status=1;
     protected $listeners = ['renderizacion' => '$refresh'];
     public $tipo = "Publicandose";
 

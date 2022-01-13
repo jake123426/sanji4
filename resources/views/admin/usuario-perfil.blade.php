@@ -99,7 +99,7 @@
     </div>
 
 
-
+    @livewireStyles()
 
 @stop
 
@@ -107,8 +107,8 @@
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js">
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> --}}
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"> --}}
+
 
     <link rel="stylesheet" type="text/css"
         href="https://unpkg.com/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.css" />
@@ -148,8 +148,8 @@
         }
 
         .formulario {
-            max-width: 60%;
-            margin: auto;
+            max-width: 80%;
+            margin: auto !important;
             margin-bottom: 2rem;
             /* background: rgba(255, 255, 255, 0); */
         }
@@ -191,10 +191,9 @@
         }
 
         .img {
-            text-align: center;
-            /* display: flex;
-                        justify-content: space-evenly;
-                        align-items: center; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .imagen {
@@ -209,29 +208,36 @@
         @media (max-width: 1024px) {
 
             .formulario {
-                max-width: 95%;
+                max-width: 90%;
             }
 
         }
 
         @media (max-width: 760px) {
 
-            .tags-input {
-                /* nuevo */
-                height: 9.3rem;
+            .content,
+            .container-fluid {
+                padding: 0 !important;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+
+            }
+            .formulario {
+                margin: 0;
             }
 
         }
 
         @media (max-width: 450px) {
 
-            .formulario {
-                max-width: 80%;
+            .img{
+                flex-direction: column;
             }
-
-            .tags-input {
-                /* nuevo */
-                height: 9.3rem;
+            .formulario {
+                max-width: 100%;
             }
         }
 

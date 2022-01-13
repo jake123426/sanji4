@@ -68,6 +68,30 @@ window.onscroll = () => {
     }
 };
 
+const modal = document.getElementsByClassName("modal__bg")[0];
+
+function miFuncion(id) {
+    const elemento = document.getElementById("modal");
+    elemento.style.display = "block";
+    modal.style.display = "inline";
+
+}
+
+modal.addEventListener("click", function (event) {
+    const elemento = document.getElementById("modal");
+    modal.style.display = "none";
+    elemento.style.display = "none";
+    document.getElementById("area").value=" ";
+});
+
+function cerrar(id) {
+    const elemento = document.getElementById("modal");
+    modal.style.display = "none";
+    elemento.style.display = "none";
+    /* document.getElementById("area").value=" "; */
+
+}
+
 var swiper = new Swiper(".mySwiper", {
     effect: "coverflow",
     grabCursor: true,

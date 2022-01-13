@@ -10,7 +10,18 @@ class Opiniones extends Component
 
     public function render()
     {
+        $coment = [];
+        $anuncios = User::find(auth()->user()->id)->anuncio()->get();
+        foreach ($anuncios as $anuncio){
+            foreach ($anuncio->opinion()->get() as $opinion){
+                $user = User::find($opinion->user_id);
+                $opinion['foto'] = $user->url;
+                $opinion['nombre'] = $user->name;
+                $coment[] = $opinion;
+            }
+        }
+
         $opiniones=User::find(auth()->user()->id)->anuncio()->get();
-        return view('livewire.admin.opiniones',compact('opiniones'));
+        return view('livewire.admin.opiniones',compact('opiniones', 'coment'));
     }
 }

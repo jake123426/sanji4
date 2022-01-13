@@ -13,8 +13,10 @@ use App\Notifications\actualizaranuncioNotification;
 use App\Notifications\borraranuncioNotification;
 use App\Models\Bitacora;
 use App\Models\imagen;
+use App\Models\Suscripcion;
 use App\Models\Tag;
 use App\Models\User;
+use App\Notifications\notificaciones;
 use Illuminate\Support\Facades\Storage;
 
 class anuncios extends Controller
@@ -323,4 +325,38 @@ class anuncios extends Controller
 
         return redirect()->back();
     }
+
+    public function estadisticas(){
+        $users=User::all();
+       foreach($users as $user){
+           $usuarios[]=$user['name'];
+           $datosanuncio[]=$user->anuncio()->count();
+
+       }
+
+
+       $user=User::all()->count();
+       $suscripcion=Suscripcion::all()->count();
+        $usernormal=$user-$suscripcion;
+        return view('admin.estadisticas',compact('usernormal','suscripcion','datosanuncio'),["data"=>json_encode($usuarios),"anuncios"=>json_encode($datosanuncio)]);
+    }
+    public function alertas(){
+        return view('admin.user_alert');
+    }
+    public function notificar(){
+        return view('admin.notificar');
+    }
+    public function storenotificar(Request $request){
+        $input2=$request->tags;
+        $ids = explode(",", $input2);
+        foreach($ids as $id){
+            $user=User::find($id);
+            $user->notify(new notificaciones($request->descripcion));
+        }
+        return redirect()->back()->with('info','Notificaciones Enviadas');
+    }
+    public function mensaje(){
+        return redirect()->back()->with('info','Notificaciones Enviadas');
+    }
+
 }

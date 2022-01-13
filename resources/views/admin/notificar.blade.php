@@ -3,27 +3,29 @@
 @section('title', 'SANJI')
 
 @section('content_header')
-    <h1 class="titulo">Producto o Servicio</h1>
+    <h1 class="titulo">Notificar</h1>
 
 @stop
 
 @section('content')
 
- @livewire('admin.crearanuncio')
+@if (session('info'))
+<div style="position: absolute" class="alert alert-success">
+    <strong>{{ session('info') }}</strong>
+</div>
+@endif
 
 
+@livewire('admin.notificacion')
+    @livewireScripts
 @stop
 
 
 @section('css')
-@livewireStyles
-    {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
+    @livewireStyles
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"> --}}
-
-
-    <link rel="stylesheet" type="text/css"
-        href="https://unpkg.com/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.css" />
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
@@ -34,11 +36,13 @@
             --light-color: #666;
         }
 
-        *{
+        * {
             text-decoration: none !important;
         }
-        .titulo {
-            color: var(--black);
+
+        .selec {
+            margin-bottom: 1rem;
+
         }
 
         .info {
@@ -48,9 +52,11 @@
         }
 
         .formulario {
-            max-width: 60%;
-            margin: auto !important;
+            max-width: 70%;
+            margin: auto;
             margin-bottom: 2rem;
+
+
             /* background: rgba(255, 255, 255, 0); */
         }
 
@@ -59,46 +65,33 @@
         }
 
         .btnFormulario {
-            max-width: 60%;
+            max-width: 70%;
             margin: auto;
             border: none;
             box-shadow: none;
             background: rgba(255, 255, 255, 0);
+            display: flex;
+            flex-direction: row;
         }
 
         .btnSub {
-            /* margin-top: 1.5rem; */
             background: var(--black);
             border: 0px;
             border-radius: 4rem;
-            padding: 0.8rem 3rem;
-            font-size: 1.3rem;
+            padding: 0.7rem 2.5rem;
+            font-size: 1.2rem;
         }
 
         .btnSub:hover {
             background: var(--green);
         }
 
-
-        .custom-file-container {
-            max-width: 100%;
-            margin: 0 auto;
-            font-size: 0.8rem;
-            font-weight: lighter;
-            color: var(--green);
-        }
-        /* --------- Imagenes Start ------------------*/
-        .imagen{
-            max-width: 100%;
+        .form-control {
+            resize: none;
         }
 
-        .delete{
-            text-decoration: none;
-            font-size: 1.3rem;
-            color: var(--black);
-            font-weight: bold;
-        }
-        /* --------- Imagenes End ------------------*/
+
+
 
         /*----------- Tags style start ---------------*/
         .tags-input {
@@ -158,6 +151,16 @@
 
         @media (max-width: 760px) {
 
+            .formulario {
+                max-width: 100%;
+            }
+
+            .btnFormulario {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
             .content,
             .container-fluid {
                 padding: 0 !important;
@@ -167,10 +170,6 @@
                 max-width: 100%;
                 padding: 0;
 
-            }
-            .formulario {
-                margin: 0;
-                max-width: 100%;
             }
 
         }
@@ -185,12 +184,7 @@
 @stop
 
 @section('js')
-
-    <script src="https://unpkg.com/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.js"></script>
-
     <script>
-        var upload = new FileUploadWithPreview("myUniqueUploadId");
-
         // --------------Etiquetas Script start------------------------------
         [].forEach.call(document.getElementsByClassName('tags-input'), function(el) {
             let hiddenInput = document.createElement('input'),
@@ -224,7 +218,7 @@
             el.appendChild(mainInput);
             el.appendChild(hiddenInput);
 
-            addTag('Etiqueta');
+            addTag('Admin');
 
             function addTag(text) {
                 let tag = {

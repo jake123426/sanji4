@@ -32,62 +32,45 @@
                                         <h4 class="card-title">{{ $anuncio->nombre }}</h4>
                                         <p class="card-text descripcion">
                                             {{ $anuncio->descripcion }}
-                                            Tal es así que la novela histórica de Jack el Destripador al día de hoy
-                                            sigue
-                                            vigente. Hablar de Jack cuando se habla de criminales homicidas famosos es
-                                            casi
-                                            una obligación, como así también lo es evocarlo a nuestro criollo Petiso
-                                            Orejudo.
                                         </p>
                                         <p class="card-text precio">{{ $anuncio->precio }} {{ $anuncio->moneda }}
                                         </p>
-
-                                        <a class="btn btn-primary mt-2"
-                                            href="{{ route('anuncios.edit', [$anuncio->id]) }}">Editar</a>
-
-
-                                        @if ($tipo == 'Publicandose')
-
-                                            <a class="btn btn-primary mt-2"
-                                                href="{{ route('anuncios.show', [$anuncio->id]) }}  ">Ir a
-                                                publicacion</a>
-
-                                        @endif
+                                        <div class="opciones">
+                                            <a class="btn btn-primary boton mt-2"
+                                                href="{{ route('anuncios.edit', [$anuncio->id]) }}">Editar</a>
 
 
-                                        <a class="btn btn-primary boton-eli mt-2"
-                                            href="{{ route('eliminar.borrar', [$anuncio->id]) }}">Eliminar</a>
+                                            @if ($tipo == 'Publicandose')
+
+                                                <a class="btn btn-primary boton mt-2"
+                                                    href="{{ route('anuncios.show', [$anuncio->id]) }}  ">Ir a
+                                                    publicacion</a>
+
+                                            @endif
 
 
-                                        @if ($tipo == 'Publicandose')
-                                            <div class="btn btn-primary  mt-2"
-                                                wire:click="status_anuncio({{ $anuncio->id }}, 'vendido')">
-                                                Marcar como vendido</div>
-                                        @endif
-
-                                        @if ($tipo == 'Vendido' or $tipo == 'Inactivo')
-                                            <div class="btn btn-primary  mt-2"
-                                                wire:click="status_anuncio({{ $anuncio->id }}, 'publicandose')">
-                                                Publicar</div>
-                                        @endif
-
-                                        @if ($tipo !== 'Inactivo')
-                                            <div class="btn btn-primary  mt-2"
-                                                wire:click="status_anuncio({{ $anuncio->id }}, 'inactivo')">
-                                                Marcar como Inactivo</div>
-                                        @endif
+                                            <a class="btn btn-primary boton boton-eli mt-2 "
+                                                href="{{ route('eliminar.borrar', [$anuncio->id]) }}">Eliminar</a>
 
 
-                                        {{-- <h6> Cambie El Estado De Su
-                                        Publicacion Con un Solo Click</h6>
+                                            @if ($tipo == 'Publicandose')
+                                                <div class="btn btn-primary boton  mt-2"
+                                                    wire:click="status_anuncio({{ $anuncio->id }}, 'vendido')">
+                                                    Marcar como vendido</div>
+                                            @endif
 
-                                    @if ($anuncio->status == 2)
-                                        <button style="color: red" wire:click="status_anuncio({{ $anuncio->id }})">
-                                            Vendido</button>
-                                    @else
-                                        <button style="color: greenyellow"
-                                            wire:click="status_anuncio({{ $anuncio->id }})"> Vendiendo </button>
-                                    @endif --}}
+                                            @if ($tipo == 'Vendido' or $tipo == 'Inactivo')
+                                                <div class="btn btn-primary boton  mt-2"
+                                                    wire:click="status_anuncio({{ $anuncio->id }}, 'publicandose')">
+                                                    Publicar</div>
+                                            @endif
+
+                                            @if ($tipo !== 'Inactivo')
+                                                <div class="btn btn-primary boton  mt-2"
+                                                    wire:click="status_anuncio({{ $anuncio->id }}, 'inactivo')">
+                                                    Marcar como Inactivo</div>
+                                            @endif
+                                        </div>
 
 
                                     </div>

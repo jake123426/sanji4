@@ -24,25 +24,26 @@
                     <div class="col-xs-12 col-sm-12 col-md-12 info">
                         INFORMACIÓN DEL USUARIO
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 img">
+                    <div class="col-xs-12 col-sm-12 col-md-12 img ">
                         <label for="perfil" class="form-label la">Foto de Perfil:</label>
                         {{-- <img id="picture" class="imagen" src="{{ Storage::url($usuario->url) }}" alt="" > --}}
-                        @if ($usuario->url==null)
-                        <img class="imagen" id="picture"
-                        src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Image Description">
+                        @if ($usuario->url == null)
+                            <img class="imagen" id="picture" src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                                alt="Image Description">
                         @else
-                        <img class="imagen" id="picture" src="{{ asset(Storage::url($usuario->url))  }}" alt="" />
+                            <img class="imagen" id="picture" src="{{ asset(Storage::url($usuario->url)) }}"
+                                alt="" />
                         @endif
                     </div>
-                    <div class="col-xs-12 col-sm-12 col-md-12 imgUser">
+                    <div class="col-xs-12 col-sm-12 col-md-12 imgUser ">
 
-                        <input type="file"  id="imageU" name="file" accept="image/*">
+                        <input type="file" id="imageU" name="file" accept="image/*">
 
                     </div>
                     @error('file')
-                    <div style="text-align: center">
-                        <span  class="text-danger">{{ $message }}</span>
-                    </div>
+                        <div style="text-align: center">
+                            <span class="text-danger">{{ $message }}</span>
+                        </div>
 
                     @enderror
                     <div class="col-xs-12 col-sm-12 col-md-12 ">
@@ -96,8 +97,8 @@
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js">
-    {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> --}}
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"> --}}
+
 
     <link rel="stylesheet" type="text/css"
         href="https://unpkg.com/file-upload-with-preview@4.1.0/dist/file-upload-with-preview.min.css" />
@@ -138,7 +139,7 @@
 
         .formulario {
             max-width: 60%;
-            margin: auto;
+            margin: auto !important;
             margin-bottom: 2rem;
             /* background: rgba(255, 255, 255, 0); */
         }
@@ -180,10 +181,10 @@
         }
 
         .img {
-            text-align: center;
-            /* display: flex;
-            justify-content: space-evenly;
-            align-items: center; */
+            /* text-align: center; */
+            display: flex;
+                justify-content: center;
+                align-items: center;
         }
 
         .imagen {
@@ -199,34 +200,40 @@
             text-align: center;
         }
 
-
         @media (max-width: 1024px) {
 
             .formulario {
-                max-width: 95%;
+                max-width: 90%;
             }
 
         }
 
         @media (max-width: 760px) {
 
-            .tags-input {
-                /* nuevo */
-                height: 9.3rem;
+
+            .content,
+            .container-fluid {
+                padding: 0 !important;
             }
 
+            .container {
+                max-width: 100%;
+                padding: 0;
+
+            }
+            .formulario {
+                margin: 0;
+            }
         }
 
         @media (max-width: 450px) {
-
+            .img{
+                flex-direction: column;
+            }
             .formulario {
-                max-width: 80%;
+                max-width: 100%;
             }
 
-            .tags-input {
-                /* nuevo */
-                height: 9.3rem;
-            }
         }
 
     </style>

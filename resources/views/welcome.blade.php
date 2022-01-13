@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
     <title>Sanji</title>
 
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
@@ -55,7 +55,7 @@
                 <a href="{{ route('anuncios.index') }}">PUBLICACIONES</a>
             </nav>
         @endauth
-            {{-- ACTUALIZADO: Cambios realizados.. --}}
+        {{-- ACTUALIZADO: Cambios realizados.. --}}
 
         <div class="icons">
             <i class="fas fa-bars" id="menu-bars"></i>
@@ -72,19 +72,13 @@
                     @csrf
 
                     <a href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                  this.closest('form').submit();">
+                                                              this.closest('form').submit();">
                         <i class="fas fa-sign-out-alt"></i>
 
                     </a>
                 </form>
 
-                @can('user.comentarios')
-                    <a href="#" class="fas fa-comment"></a>
-                @endcan
 
-                @can('megustas.megusta')
-                    <a class="far fa-heart fa-2x her" href="{{ route('megustas.megusta', [auth()->user()->id]) }}"></a>
-                @endcan
 
                 <!------------------ Usuario Navbar  ----------------------->
                 <div class="contenedorUser" {{-- x-data="{ open : false }" --}}>
@@ -100,11 +94,18 @@
                         </button>
                     </div>
                     <div {{-- x-show="open" x-on:click.away="open=false" --}} class=" showUser">
-                        <a href="{{ route('userss.cuenta', auth()->user()->id) }}" class="perfilUser">Cuenta</a>
-                        <a href="{{ route('userss.perfil', auth()->user()->id) }}" class="perfilUser">Perfil</a>
-                        <a href="{{ route('megustas.megusta', auth()->user()->id) }}"
-                            class="perfilUser">Favoritos</a>
-                        <a href="{{ route('opiniones.index', auth()->user()->id) }}" class="perfilUser">Opiniones</a>
+                        <a href="{{ route('userss.cuenta', auth()->user()->id) }}" class="perfilUser fas fa-user">
+                            Cuenta</a>
+                        <a href="{{ route('userss.perfil', auth()->user()->id) }}"
+                            class="perfilUser fas fa-address-card"> Perfil</a>
+                        @can('user.comentarios')
+                            <a href="{{ route('opiniones.index', auth()->user()->id) }}" class="perfilUser fas fa-comment">
+                                Opiniones</a>
+                        @endcan
+                        @can('megustas.megusta')
+                            <a href="{{ route('megustas.megusta', auth()->user()->id) }}" class="perfilUser fas fa-heart">
+                                Favoritos</a>
+                        @endcan
                     </div>
                 </div>
                 <!----------------- Usuario Navbar End --------------------->
@@ -186,7 +187,7 @@
 
 
             <div class="box">
-                <img src="{{ asset('images/coches.jpg') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain" src="{{ asset('images/coches.jpg') }}" alt="" />
                 <div class="dato-container">
                     <h3>Coches</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [1]) }}"> Explorar</a>
@@ -195,7 +196,8 @@
             </div>
 
             <div class="box">
-                <img src="{{ asset('images/motos.jpg') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain; object-position: center"
+                    src="{{ asset('images/motos.jpg') }}" alt="" />
                 <div class="dato-container">
                     <h3>Motos</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [2]) }}"> Explorar</a>
@@ -204,7 +206,8 @@
             </div>
 
             <div class="box">
-                <img src="{{ asset('images/motores.jpg') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain; object-position: center"
+                    src="{{ asset('images/motores.jpg') }}" alt="" />
                 <div class="dato-container">
                     <h3>Motores</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [3]) }}"> Explorar</a>
@@ -213,7 +216,8 @@
             </div>
 
             <div class="box">
-                <img src="{{ asset('images/deportes.jpg') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain; object-position: center"
+                    src="{{ asset('images/deportes.jpg') }}" alt="" />
                 <div class="dato-container">
                     <h3>Accesorios Deportivos</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [4]) }}"> Explorar</a>
@@ -222,7 +226,8 @@
             </div>
 
             <div class="box">
-                <img src="{{ asset('images/casas.jpg') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain; object-position: center"
+                    src="{{ asset('images/casas.jpg') }}" alt="" />
                 <div class="dato-container">
                     <h3>Inmuebles</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [5]) }}"> Explorar</a>
@@ -231,7 +236,8 @@
             </div>
 
             <div class="box">
-                <img src="{{ asset('images/electronicos.jpg') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain; object-position: center"
+                    src="{{ asset('images/electronicos.jpg') }}" alt="" />
                 <div class="dato-container">
                     <h3>Dispositivos Electronicos</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [6]) }}"> Explorar</a>
@@ -240,7 +246,8 @@
             </div>
 
             <div class="box">
-                <img src="{{ asset('images/servicios.png') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain; object-position: center"
+                    src="{{ asset('images/servicios.png') }}" alt="" />
                 <div class="dato-container">
                     <h3>Servicios</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [7]) }}"> Explorar</a>
@@ -249,7 +256,8 @@
             </div>
 
             <div class="box">
-                <img src="{{ asset('images/otros.png') }}" alt="" />
+                <img style="max-height: 17rem; object-fit: contain; object-position: center"
+                    src="{{ asset('images/otros.png') }}" alt="" />
                 <div class="dato-container">
                     <h3>Otros</h3>
                     <a class="botonsimple" href="{{ route('ver.categoria', [8]) }}"> Explorar</a>

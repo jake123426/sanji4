@@ -29,7 +29,14 @@ html {
     scroll-padding-top: 5.5rem;
     scroll-behavior: smooth;
 }
-
+.rep{
+    margin-left:1rem;
+    color: #3a4e81;
+    background-color: white;
+}
+.rep:hover{
+    cursor: pointer;
+}
 section {
     padding: 2rem 9%;
 }
@@ -138,7 +145,6 @@ header .icons a:hover {
     transform: rotate(360deg);
 }
 
-
 header .icons form {
     display: inline;
 }
@@ -208,7 +214,6 @@ header .icons form a:hover {
 /*------------- User Navbar End ----------------- */
 
 /*  Search Section Stars ------------------------------------*/
-
 
 .search-container {
     background: #fff;
@@ -304,10 +309,29 @@ header .icons form a:hover {
     color: rgb(202, 174, 13);
 }
 .her {
-    color: var(--green) ;
+    color: var(--green);
     background: transparent;
     transition: all 0.5s;
 }
+
+.opinion-caja{
+    display: flex;
+    flex-direction: column;
+}
+
+.coment{
+    padding: 1rem 2rem;
+    border: 1px solid #d0d6e4;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    resize: none;
+    box-shadow: 2px 2px 10px 1px rgb(170, 170, 170);
+    font-size: 1.5rem;
+}
+.coment:hover{
+    cursor: default;
+}
+
 .her:hover {
     cursor: pointer;
     color: rgb(240, 155, 155) !important;
@@ -332,10 +356,79 @@ header .icons form a:hover {
     justify-content: center;
     align-items: center;
 }
+
+.modal__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.modal__bg:hover {
+    cursor: default;
+}
+.contenedor1 {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* margin-top: 1rem; */
+    background: #fff;
+    font-size: 1.5rem;
+    z-index: 5;
+    padding: 0.8rem 3rem;
+    border-radius: 3rem;
+    box-shadow: 0 3px 16px 3px #25323833;
+    max-width: 70%;
+    min-width: 70%;
+}
+.contenedor-title {
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    color: var(--green);
+}
+.contenedor-body {
+    padding: 1rem;
+
+}
+.contenedor-footer {
+    float: right;
+    margin-right: -2rem;
+}
+
+.contenedor1 .botonf {
+    margin-top: 1rem;
+    /* display: inline-block; */
+    font-size: 1.3rem;
+    color: #fff;
+    background: var(--black);
+    border-radius: 3rem;
+    cursor: pointer;
+    padding: 0.8rem 2rem;
+}
+.contenedor1 .botonf:hover {
+    cursor: pointer;
+    background: var(--green);
+
+}
+
+#area{
+    resize: none;
+    font-size: 2rem;
+    padding: 1rem;
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: 0.5rem;
+    min-width: 100%;
+}
+
 /*------------------------ Imagenes slider ---------------------*/
 .swiper {
     margin-top: 3rem;
-    max-width: 95%;
+    /* max-width: 95%; */
+    width: 100%;
+    height: 100%;
     /* border: 1px solid black; */
 }
 
@@ -403,19 +496,15 @@ header .icons form a:hover {
 .comentario-container {
     font-size: 1.7rem;
     display: flex;
-    /* justify-content: stretch; */
     align-items: center;
     margin-top: 1rem;
     padding: 1rem;
 }
+
 /* .comentario-container:not(.comentario-container:nth-last-child(1)) {
     border-bottom: 1px solid rgb(180, 180, 180);
 } */
-/* .comentarioUser{
-    overflow: hidden;
-    max-width: 70%;
-    min-width: 70%;
-} */
+
 .escribir {
     display: flex;
     flex-direction: column;
@@ -591,7 +680,7 @@ header .icons form a:hover {
         width: 500px;
     }
 }
-@media (max-width: 1200px){
+@media (max-width: 1200px) {
     header .icons #menu-bars {
         display: inline-block;
     }
@@ -626,18 +715,16 @@ header .icons form a:hover {
     }
     .cc {
         flex-direction: column;
-
     }
-    .escribir{
+    .escribir {
         margin: 0rem !important;
         padding: 0rem;
         min-width: 100%;
-
     }
-    .puntaje{
+    .puntaje {
         margin-top: 1rem;
     }
-    .etiqueta{
+    .etiqueta {
         margin-top: 1.5rem;
     }
 }
@@ -660,11 +747,9 @@ header .icons form a:hover {
     .showUser {
         top: 6rem;
     }
-
 }
 
 @media (max-width: 850px) {
-
     #search-form #search-box {
         width: 90%;
         margin: 0 1rem;
@@ -680,17 +765,17 @@ header .icons form a:hover {
     .comentario-container {
         flex-direction: column;
 
+        align-items: stretch;
     }
     .escribir textarea {
         width: 300px;
-        margin: 0rem ;
+        margin: 0rem;
         padding: 0.5rem 0.5rem;
     }
-    .escribir{
+    .escribir {
         margin: 0rem !important;
         padding: 0rem;
         min-width: 100%;
-
     }
     .aling {
         margin: auto;
@@ -698,16 +783,36 @@ header .icons form a:hover {
     .showUser {
         top: 6rem;
     }
-    .etiqueta{
+    .etiqueta {
         margin-top: 1.5rem;
     }
-    .comentario-container .borde{
+    .comentario-container .borde {
         width: 100%;
-        border-bottom: 1px solid rgb(212, 212, 212) ;
+        border-bottom: 1px solid rgb(212, 212, 212);
         padding-bottom: 1rem;
     }
-    .puntaje{
+    .puntaje {
         margin-top: 1rem;
+    }
+    .contenedor1 {
+        max-width: 85%;
+        min-width: 85%;
+    }
+    .opinion-caja{
+        margin-left: 0 !important;
+    }
+}
+
+@media (max-width: 568px) {
+    .swiper-slide img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+    .contenedor1 {
+        max-width: 90%;
+        min-width: 90%;
     }
 
 }
@@ -716,7 +821,10 @@ header .icons form a:hover {
     html {
         font-size: 50%;
     }
-
+    section {
+        padding: 0;
+        margin-bottom: 1rem;
+    }
     .dishes .box-container .box img {
         height: auto;
         width: 100%;
@@ -729,16 +837,26 @@ header .icons form a:hover {
     .search-container:hover > .search-input {
         width: 200px;
     }
+    .contenedor{
+        padding: 0;
+    }
 
+    .rep{
+        margin-right: 0.5rem;
+    }
 
     .escribir textarea {
         width: 100px;
-        margin: 0rem ;
+        margin: 0rem;
         padding: 0.5rem 0.5rem;
     }
 
-    .puntaje{
+    .puntaje {
         margin-top: 1rem;
+    }
+    .contenedor1 {
+        max-width: 95%;
+        min-width: 95%;
     }
 
 }

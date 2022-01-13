@@ -95,12 +95,23 @@
             .tamaño {
                 max-width: 95%;
             }
+            .content,
+            .container-fluid {
+                padding: 0 !important;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0;
+
+            }
+
         }
 
         @media (max-width: 450px) {
 
             .tamaño {
-                max-width: 95%;
+                max-width: 100%;
             }
         }
 

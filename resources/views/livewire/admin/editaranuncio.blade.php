@@ -87,7 +87,7 @@
                         <div class="col-xs-4 col-sm-6 col-md-4 ">
                             <div class="card">
 
-                                <div class="card-body">
+                                <div style="text-align: center" class="card-body">
                                     <img class="imagen" src="{{ asset(Storage::url($imagen->url)) }}"
                                         alt="No Image">
                                 </div>

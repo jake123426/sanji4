@@ -3,12 +3,14 @@
 @section('title', 'SANJI')
 
 @section('content_header')
-    <h1 class="titulo">Usuarios Registrados</h1>
+    {{-- <a class="btn crear btn-md float-right border border-secondary "
+        href="{{ route('gestionarSuscripcion.index') }}">Volver</a> --}}
+    <h1 class="titulo">Reportes</h1>
 @stop
 
 @section('content')
-    @livewire('admin.usuarios')
 
+@livewire('admin.user-alert')
     <p><br></p>
 @stop
 
@@ -21,7 +23,6 @@
 
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700&display=swap");
-        @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Cookie&display=swap');
 
         :root {
             --green: #adc5ea;
@@ -30,15 +31,14 @@
             --box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
         }
 
-        *{
+        * {
             text-decoration: none !important;
         }
+
         .tamaño {
             max-width: 80%;
             margin: auto;
         }
-
-        /* --------------------------------------------------------------------------------------------- */
 
         h1 {
             color: var(--black);
@@ -59,11 +59,19 @@
             margin-top: 0.5rem;
             height: 100%;
             width: 100%;
-
-            /* justify-content: center;
-                        align-items: center; */
         }
 
+
+
+        #area{
+            max-width: 100%;
+            min-width: 100%;
+            resize: none;
+            border: 1px solid rgb(190, 190, 190);
+            border-radius: 0.5rem;
+            padding: 1rem;
+
+        }
 
         .card {
             border-radius: 2rem;
@@ -82,7 +90,19 @@
             background: var(--green);
         }
 
+        .tabla{
+            overflow: auto;
+        }
 
+        .area{
+            resize: none;
+            padding: 0.2rem 0.3rem;
+            border: 1px solid rgb(185, 185, 185);
+            border-radius: 0.5rem;
+        }
+        .area:hover{
+            cursor: default;
+        }
 
         /* -------------------------------------------------------------------------------------------- */
         @media (max-width: 1500px) {
@@ -96,17 +116,6 @@
             .tamaño {
                 max-width: 95%;
             }
-            .content,
-            .container-fluid {
-                padding: 0 !important;
-            }
-
-            .container {
-                max-width: 100%;
-                padding: 0;
-
-            }
-
         }
 
         @media (max-width: 450px) {
@@ -114,7 +123,17 @@
             .tamaño {
                 max-width: 100%;
             }
+            .content , .container-fluid{
+                padding: 0 !important;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+
+            }
         }
+
+
 
     </style>
 

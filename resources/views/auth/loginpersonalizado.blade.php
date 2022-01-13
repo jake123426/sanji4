@@ -11,9 +11,9 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css"
         integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    {{-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> --}}
+    {{-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> --}}
     <!------ Include the above in your HEAD tag ---------->
     <link
     rel="stylesheet"
@@ -21,6 +21,10 @@
 
     <style>
         /* BASIC */
+
+        *{
+            text-decoration: none !important;
+        }
 
         html {
             background-color: #56baed;
@@ -126,23 +130,7 @@
             transition: all 0.3s ease-in-out;
         }
 
-        input[type=button]:hover,
-        input[type=submit]:hover,
-        input[type=reset]:hover {
-            background-color: #39ace7;
-        }
-
-        input[type=button]:active,
-        input[type=submit]:active,
-        input[type=reset]:active {
-            -moz-transform: scale(0.95);
-            -webkit-transform: scale(0.95);
-            -o-transform: scale(0.95);
-            -ms-transform: scale(0.95);
-            transform: scale(0.95);
-        }
-
-        button[type=submit] {
+        .boton{
             background-color: #56baed;
             border: none;
             color: white;
@@ -164,11 +152,52 @@
             transition: all 0.3s ease-in-out;
         }
 
-        button[type=submit]:hover {
+        .boton:hover{
+            color: white;
+        }
+        input[type=button]:hover,
+        input[type=submit]:hover,
+        input[type=reset]:hover {
             background-color: #39ace7;
         }
 
-        
+        input[type=button]:active,
+        input[type=submit]:active,
+        input[type=reset]:active {
+            -moz-transform: scale(0.95);
+            -webkit-transform: scale(0.95);
+            -o-transform: scale(0.95);
+            -ms-transform: scale(0.95);
+            transform: scale(0.95);
+        }
+
+        button[type=submit] {
+            background-color: #192a56;
+            border: none;
+            color: white;
+            padding: 15px 80px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            font-size: 13px;
+            -webkit-box-shadow: 0 10px 30px 0 #adc5ea;
+            box-shadow: 0 10px 30px 0 #adc5ea;
+            -webkit-border-radius: 5px 5px 5px 5px;
+            border-radius: 5px 5px 5px 5px;
+            margin: 5px 20px 40px 20px;#192a56
+            -webkit-transition: all 0.3s ease-in-out;
+            -moz-transition: all 0.3s ease-in-out;
+            -ms-transition: all 0.3s ease-in-out;
+            -o-transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
+        }
+
+        button[type=submit]:hover {
+            background-color: #adc5ea;
+        }
+
+
         button[type=submit]:active {
             -moz-transform: scale(0.95);
             -webkit-transform: scale(0.95);
@@ -266,7 +295,7 @@
         input[type=password]:placeholder {
             color: #cccccc;
         }
-        
+
         /* ANIMATIONS */
 
         /* Simple CSS3 Fade-in-down Animation */
@@ -390,7 +419,7 @@
         }
 
         .underlineHover:hover {
-            color: #0d0d0d;
+            color: #192a56;
         }
 
         .underlineHover:hover:after {
@@ -398,7 +427,9 @@
         }
 
         h1 {
-            color: #60a0ff;
+            color: #adc5ea;
+            margin: 1rem 0rem;
+            font-weight: bold;
         }
 
         /* OTHERS */
@@ -423,10 +454,8 @@
 
             <!-- Icon -->
             <div class="fadeIn first mb-3 mt-4">
-                <i class="fas fa-dragon fa-7x" style="color:#7f94cc;"></i>
-                {{-- <img src="https://www.b-cube.in/wp-content/uploads/2014/05/aditya-300x177.jpg" id="icon"
-                    alt="User Icon" /> --}}
-                <h1>Sanji</h1>
+                <i class="fas fa-dragon fa-5x" style="color:#192a56;"></i>
+                <h1>SANJI</h1>
             </div>
 
             <x-jet-validation-errors class="mb-3 rounded-0" />
@@ -440,11 +469,11 @@
             <!-- Login Form -->
             <form method="POST" action="{{ route('login') }}">
                 @csrf
-                
+
                 <input type="email" id="login" class="fadeIn second {{ $errors->has('email') ? 'is-invalid' : '' }}" name="email" placeholder="correo electronico" value="{{old('email')}}" required>
                 <x-jet-input-error for="email"></x-jet-input-error>
 
-        
+
                 <input type="password" id="password" class="fadeIn third {{ $errors->has('password') ? ' is-invalid' : '' }} mb-0" name="password" placeholder="password" required autocomplete="current-password">
                 <x-jet-input-error for="password"></x-jet-input-error>
 
@@ -458,13 +487,16 @@
                 <div class="d-flex justify-content-center align-items-baseline">
                     @if (Route::has('password.request'))
                         <a class="text-muted me-3" href="{{ route('password.request') }}">
-                            {{ __('Forgot your password?') }}
+                            {{ __('Olvidaste tu contraseña?') }}
                         </a>
                     @endif
                 </div>
 
                 <button type="submit" class="fadeIn fourth">Iniciar Sesion</button>
+
             </form>
+
+            <a class="boton" href="{{url('auth/facebook')}}">Facebook</a>
 
             <!-- Remind Passowrd -->
             <div id="formFooter">
@@ -475,12 +507,12 @@
     </div>
 
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+    {{-- <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous">
-    </script>
+    </script> --}}
 
 </body>
 

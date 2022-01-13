@@ -15,7 +15,7 @@
 @section('css')
     {{-- <link rel="stylesheet" href="/css/admin_custom.css"> --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js">
+    {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"> --}}
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" /> --}}
 
     <link rel="stylesheet" type="text/css"
@@ -45,7 +45,7 @@
         }
 
         .formulario {
-            max-width: 60%;
+            max-width: 70%;
             margin: auto;
             margin-bottom: 2rem;
             /* background: rgba(255, 255, 255, 0); */
@@ -87,6 +87,7 @@
         /* --------- Imagenes Start ------------------*/
         .imagen{
             max-width: 100%;
+            height: 7rem;
         }
 
         .delete{
@@ -101,7 +102,7 @@
         .tags-input {
             border: 1px solid rgb(199, 199, 199);
             border-radius: 0.3rem;
-            height: 3.1rem;
+           /*  height: 3.1rem; */
             box-shadow: 0 .125rem 0.25rem rgba(0, 0, 0, .075) !important;
             max-width: 100%;
             min-width: 100%;
@@ -155,23 +156,30 @@
 
         @media (max-width: 760px) {
 
-            .tags-input {
-                /* nuevo */
-                height: 9.3rem;
+            .formulario {
+                max-width: 100%;
+            }
+            .content,
+            .container-fluid {
+                padding: 0 !important;
+            }
+            .container {
+                max-width: 100%;
+                padding: 0;
+
             }
 
         }
 
+        @media (max-width: 575px) {
+            .imagen{
+                height: 100%;
+            }
+        }
+
         @media (max-width: 450px) {
 
-            .formulario {
-                max-width: 80%;
-            }
 
-            .tags-input {
-                /* nuevo */
-                height: 9.3rem;
-            }
         }
 
     </style>
@@ -238,15 +246,13 @@
                     removeTag(tags.indexOf(tag));
                 });
                 tag.element.appendChild(closeBtn);
-                if (tags.length >= 0 && tags.length < 5) {
+
                     tags.push(tag);
 
                     el.insertBefore(tag.element, mainInput);
 
                     refreshTags();
-                } else {
-                    mainInput.setAttribute('type', 'hidden');
-                }
+
 
             }
 
@@ -267,7 +273,7 @@
             }
 
             function filterTag(tag) {
-                return tag.replace(/[^\w -]/g, '').trim().replace(/\W+/g, '-');
+                return tag.replace(/[^\w-]/g, '').trim().replace(/\W+/g, '-');
             }
         });
         //---------------------Etiquetas script end --------------------------

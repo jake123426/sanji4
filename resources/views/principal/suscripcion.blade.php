@@ -66,13 +66,6 @@
                     </a>
                 </form>
 
-                @can('user.comentarios')
-                    <a href="#" class="fas fa-comment"></a>
-                @endcan
-
-                @can('megustas.megusta')
-                    <a class="far fa-heart fa-2x her" href="{{ route('megustas.megusta', [auth()->user()->id]) }}"></a>
-                @endcan
 
                 <!------------------ Usuario Navbar  ----------------------->
                 <div class="contenedorUser" >
@@ -88,11 +81,18 @@
                         </button>
                     </div>
                     <div class=" showUser">
-                        <a href="{{ route('userss.cuenta', auth()->user()->id) }}" class="perfilUser">Cuenta</a>
-                        <a href="{{ route('userss.perfil', auth()->user()->id) }}" class="perfilUser">Perfil</a>
-                        <a href="{{ route('megustas.megusta', auth()->user()->id) }}"
-                            class="perfilUser">Favoritos</a>
-                        <a href="{{ route('opiniones.index', auth()->user()->id) }}" class="perfilUser">Opiniones</a>
+                        <a href="{{ route('userss.cuenta', auth()->user()->id) }}" class="perfilUser fas fa-user">
+                            Cuenta</a>
+                        <a href="{{ route('userss.perfil', auth()->user()->id) }}"
+                            class="perfilUser fas fa-address-card"> Perfil</a>
+                        @can('user.comentarios')
+                            <a href="{{ route('opiniones.index', auth()->user()->id) }}" class="perfilUser fas fa-comment">
+                                Opiniones</a>
+                        @endcan
+                        @can('megustas.megusta')
+                            <a href="{{ route('megustas.megusta', auth()->user()->id) }}" class="perfilUser fas fa-heart">
+                                Favoritos</a>
+                        @endcan
                     </div>
                 </div>
                 <!----------------- Usuario Navbar End --------------------->
